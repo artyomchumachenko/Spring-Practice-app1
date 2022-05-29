@@ -6,10 +6,7 @@ import com.example.acspring.exception.UserNotFoundException;
 import com.example.acspring.model.User;
 import com.example.acspring.repository.UserRepo;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
-
-import java.net.UnknownServiceException;
 
 @Service
 public class UserService {
@@ -31,4 +28,16 @@ public class UserService {
         }
         return User.toModel(user);
     }
+
+    public Long deleteUser(Long id) {
+        userRepo.deleteById(id);
+        return id;
+    }
+
+//    public String deleteUsername(String username) {
+//        userRepo.deleteByUsername(username);
+//        return username;
+//    }
+
+
 }
