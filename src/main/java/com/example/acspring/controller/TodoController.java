@@ -17,7 +17,7 @@ public class TodoController {
     @Autowired
     private TodoService todoService;
 
-    @PostMapping
+    @PostMapping("/new")
     public ResponseEntity createTodo(@RequestBody TodoEntity todo,
                                      @RequestParam Long userId) {
         try {
@@ -27,7 +27,7 @@ public class TodoController {
         }
     }
 
-    @PutMapping
+    @PutMapping("/complete")
     public ResponseEntity completeTodo(@RequestParam Long id) {
         try {
             return ResponseEntity.ok(todoService.completeTodo(id));

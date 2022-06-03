@@ -9,6 +9,7 @@ public class User {
     private Long id;
     private String username;
     private List<Todo> todos;
+    private Wallet wallet;
 
     public User() {
     }
@@ -44,5 +45,23 @@ public class User {
 
     public void setUsername(String username) {
         this.username = username;
+    }
+
+    public Wallet getWallet() {
+        return wallet;
+    }
+
+    public void setWallet(Wallet wallet) {
+        this.wallet = wallet;
+    }
+
+    @Override
+    public String toString() {
+        return "\nUser{" +
+                "id=" + id +
+                ", username='" + username + '\'' +
+                ", todos=" + todos +
+                ", wallet=" + wallet +
+                '}';
     }
 }
