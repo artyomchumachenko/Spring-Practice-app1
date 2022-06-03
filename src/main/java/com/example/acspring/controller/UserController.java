@@ -22,7 +22,7 @@ public class UserController {
     @Autowired
     private UserService userService;
 
-    @PostMapping
+    @PostMapping("/registration")
     public ResponseEntity registration(@RequestBody UserEntity user) {
         try {
             userService.registration(user);
@@ -34,8 +34,8 @@ public class UserController {
         }
     }
 
-    @GetMapping("/getAll")
-    public ResponseEntity getUsers() {
+    @GetMapping("/checkServer")
+    public ResponseEntity checkServer() {
         try {
             return ResponseEntity.ok("Server is work");
         } catch (Exception e) {
@@ -43,7 +43,7 @@ public class UserController {
         }
     }
 
-    @GetMapping("/getOne")
+    @GetMapping("/getUser")
     public ResponseEntity getOneUser(@RequestParam Long id) {
         try {
             return ResponseEntity.ok(userService.getOne(id));
@@ -54,7 +54,12 @@ public class UserController {
         }
     }
 
-    @DeleteMapping("/{id}")
+    /**
+     * Delete by id
+     * @param id id
+     * @return response entity
+     */
+    @DeleteMapping("/deleteById/{id}") // @RequestMapping(method = RequestMethod.DELETE)
     public ResponseEntity deleteUser(@PathVariable Long id) {
         try {
             return ResponseEntity.ok(userService.deleteUser(id));
@@ -63,14 +68,17 @@ public class UserController {
         }
     }
 
-
-
-//    @DeleteMapping("/{username}")
-//    public ResponseEntity deleteUsername(@PathVariable String username) {
-//        try {
-//            return ResponseEntity.ok(userService.deleteUsername(username));
-//        } catch (Exception e) {
-//            return ResponseEntity.badRequest().body("Error");
-//        }
-//    }
+    /**
+     * Delete by username
+     * @param username username
+     * @return response entity
+     */
+    @DeleteMapping("/deleteByName/{username}")
+    public ResponseEntity deleteUserBy(@PathVariable String username) {
+        try {
+            return ResponseEntity.ok(userService.deleteUser(username));
+        } catch (Exception e) {
+            return ResponseEntity.badRequest().body("Error");
+        }
+    }
 }

@@ -16,14 +16,17 @@ public class UserService {
 
     public UserEntity registration(UserEntity user) throws UserAlreadyExistException {
         if (userRepo.findByUsername(user.getUsername()) != null) {
+            System.out.println(userRepo.findByUsername(user.getUsername()));
             throw new UserAlreadyExistException("User with this name was exist");
         }
         return userRepo.save(user);
     }
 
     public User getOne(Long id) throws UserNotFoundException {
-        UserEntity user = userRepo.findById(id).get();
-        if (user == null) {
+        UserEntity user;
+        if (userRepo.findById(id).isPresent()) {
+            user = userRepo.findById(id).get();
+        } else {
             throw new UserNotFoundException("User is not found");
         }
         return User.toModel(user);
@@ -34,10 +37,14 @@ public class UserService {
         return id;
     }
 
-//    public String deleteUsername(String username) {
-//        userRepo.deleteByUsername(username);
-//        return username;
-//    }
-
-
+    public String deleteUser(String username) throws UserNotFoundException {
+        UserEntity deleteUser;
+        if (userRepo.findByUsername(username) != null) {
+            deleteUser = userRepo.findByUsername(username);
+        } else {
+            throw new UserNotFoundException("User with this name was not found");
+        }
+        userRepo.delete(deleteUser);
+        return username;
+    }
 }
