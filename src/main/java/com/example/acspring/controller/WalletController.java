@@ -6,6 +6,7 @@ import com.example.acspring.exception.WalletNotFoundException;
 import com.example.acspring.service.WalletService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -46,8 +47,17 @@ public class WalletController {
     public ResponseEntity addFundsByUserId(@RequestParam Long userId, @RequestParam BigDecimal amount) {
         try {
             return ResponseEntity.ok(walletService.addFundsByUserId(userId, amount));
-        } catch (UserNotFoundException e) {
+        } catch (UserNotFoundException | WalletNotFoundException e) {
             return ResponseEntity.badRequest().body(e.getMessage());
+        } catch (Exception e) {
+            return ResponseEntity.badRequest().body("Error");
+        }
+    }
+
+    @DeleteMapping("/delete")
+    public ResponseEntity deleteWalletById(@RequestParam Long walletId) {
+        try {
+            return ResponseEntity.ok(walletService.deleteWalletById(walletId));
         } catch (WalletNotFoundException e) {
             return ResponseEntity.badRequest().body(e.getMessage());
         } catch (Exception e) {

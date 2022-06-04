@@ -58,4 +58,12 @@ public class WalletService {
         walletRepo.save(wallet);
         return wallet.getBalance();
     }
+
+    public String deleteWalletById(Long walletId) throws WalletNotFoundException {
+        if (walletRepo.findById(walletId).isEmpty()) {
+            throw new WalletNotFoundException("Wallet not found");
+        }
+        walletRepo.deleteById(walletId);
+        return "Wallet success removed";
+    }
 }
