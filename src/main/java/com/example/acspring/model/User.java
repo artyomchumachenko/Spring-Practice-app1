@@ -2,6 +2,7 @@ package com.example.acspring.model;
 
 import com.example.acspring.entity.UserEntity;
 
+import java.math.BigDecimal;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -9,7 +10,7 @@ public class User {
     private Long id;
     private String username;
     private List<Todo> todos;
-    private Wallet wallet;
+    private BigDecimal walletBalance;
 
     public User() {
     }
@@ -20,6 +21,9 @@ public class User {
         model.setUsername(entity.getUsername());
         //Massive entity convert to massive models(stream api use)
         model.setTodos(entity.getTodos().stream().map(Todo::toModel).collect(Collectors.toList()));
+        if (model.isWalletExist(entity)) {
+            model.setWalletBalance(entity.getWallet().getBalance());
+        }
         return model;
     }
 
@@ -47,21 +51,30 @@ public class User {
         this.username = username;
     }
 
-    public Wallet getWallet() {
-        return wallet;
+    public BigDecimal getWalletBalance() {
+        return walletBalance;
     }
 
-    public void setWallet(Wallet wallet) {
-        this.wallet = wallet;
+    public void setWalletBalance(BigDecimal walletBalance) {
+        this.walletBalance = walletBalance;
+    }
+
+    /**
+     * Check wallet on exist
+     * @param user UserEntity for us model
+     * @return wallet is existed
+     */
+    private boolean isWalletExist(UserEntity user) {
+        return user.getWallet() != null;
     }
 
     @Override
     public String toString() {
-        return "\nUser{" +
+        return "User{" +
                 "id=" + id +
                 ", username='" + username + '\'' +
                 ", todos=" + todos +
-                ", wallet=" + wallet +
+                ", walletBalance=" + walletBalance +
                 '}';
     }
 }
