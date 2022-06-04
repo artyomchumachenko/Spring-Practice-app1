@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.servlet.ModelAndView;
 
 @RestController
 @RequestMapping("/users")
@@ -43,6 +44,13 @@ public class UserController {
         }
     }
 
+    @RequestMapping("/reg")
+    public ModelAndView welcome() {
+        ModelAndView modelAndView = new ModelAndView();
+        modelAndView.setViewName("reg.html");
+        return modelAndView;
+    }
+
     @GetMapping("/getUser")
     public ResponseEntity getOneUser(@RequestParam Long id) {
         try {
@@ -56,6 +64,7 @@ public class UserController {
 
     /**
      * Delete by id
+     *
      * @param id id
      * @return response entity
      */
@@ -70,6 +79,7 @@ public class UserController {
 
     /**
      * Delete by username
+     *
      * @param username username
      * @return response entity
      */
