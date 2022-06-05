@@ -1,9 +1,9 @@
-package com.example.acspring.controller;
+package com.example.springapp1.controller;
 
-import com.example.acspring.entity.UserEntity;
-import com.example.acspring.exception.UserAlreadyExistException;
-import com.example.acspring.exception.UserNotFoundException;
-import com.example.acspring.service.UserService;
+import com.example.springapp1.entity.UserEntity;
+import com.example.springapp1.exception.UserAlreadyExistException;
+import com.example.springapp1.exception.UserNotFoundException;
+import com.example.springapp1.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;

@@ -1,6 +1,6 @@
-package com.example.acspring.model;
+package com.example.springapp1.model;
 
-import com.example.acspring.entity.TodoEntity;
+import com.example.springapp1.entity.TodoEntity;
 
 public class Todo {
     private Long id;

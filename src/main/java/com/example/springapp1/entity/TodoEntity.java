@@ -1,4 +1,4 @@
-package com.example.acspring.entity;
+package com.example.springapp1.entity;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;

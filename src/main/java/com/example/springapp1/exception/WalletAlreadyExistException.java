@@ -1,4 +1,4 @@
-package com.example.acspring.exception;
+package com.example.springapp1.exception;
 
 public class WalletAlreadyExistException extends Exception {
 

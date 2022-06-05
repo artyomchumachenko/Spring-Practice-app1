@@ -1,7 +1,7 @@
-package com.example.acspring.controller;
+package com.example.springapp1.controller;
 
-import com.example.acspring.entity.TodoEntity;
-import com.example.acspring.service.TodoService;
+import com.example.springapp1.entity.TodoEntity;
+import com.example.springapp1.service.TodoService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;

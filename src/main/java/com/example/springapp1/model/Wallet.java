@@ -1,6 +1,6 @@
-package com.example.acspring.model;
+package com.example.springapp1.model;
 
-import com.example.acspring.entity.WalletEntity;
+import com.example.springapp1.entity.WalletEntity;
 
 import java.math.BigDecimal;
 

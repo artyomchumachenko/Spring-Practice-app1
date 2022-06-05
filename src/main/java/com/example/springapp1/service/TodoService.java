@@ -1,10 +1,10 @@
-package com.example.acspring.service;
+package com.example.springapp1.service;
 
-import com.example.acspring.entity.TodoEntity;
-import com.example.acspring.entity.UserEntity;
-import com.example.acspring.model.Todo;
-import com.example.acspring.repository.TodoRepo;
-import com.example.acspring.repository.UserRepo;
+import com.example.springapp1.entity.TodoEntity;
+import com.example.springapp1.entity.UserEntity;
+import com.example.springapp1.model.Todo;
+import com.example.springapp1.repository.TodoRepo;
+import com.example.springapp1.repository.UserRepo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

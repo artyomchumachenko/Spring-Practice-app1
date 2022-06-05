@@ -1,9 +1,9 @@
-package com.example.acspring.controller;
+package com.example.springapp1.controller;
 
-import com.example.acspring.exception.UserNotFoundException;
-import com.example.acspring.exception.WalletAlreadyExistException;
-import com.example.acspring.exception.WalletNotFoundException;
-import com.example.acspring.service.WalletService;
+import com.example.springapp1.exception.UserNotFoundException;
+import com.example.springapp1.exception.WalletAlreadyExistException;
+import com.example.springapp1.exception.WalletNotFoundException;
+import com.example.springapp1.service.WalletService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;

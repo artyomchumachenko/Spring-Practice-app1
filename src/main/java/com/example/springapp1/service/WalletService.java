@@ -1,19 +1,17 @@
-package com.example.acspring.service;
+package com.example.springapp1.service;
 
-import com.example.acspring.entity.UserEntity;
-import com.example.acspring.entity.WalletEntity;
-import com.example.acspring.exception.UserAlreadyExistException;
-import com.example.acspring.exception.UserNotFoundException;
-import com.example.acspring.exception.WalletAlreadyExistException;
-import com.example.acspring.exception.WalletNotFoundException;
-import com.example.acspring.model.Wallet;
-import com.example.acspring.repository.UserRepo;
-import com.example.acspring.repository.WalletRepo;
+import com.example.springapp1.entity.UserEntity;
+import com.example.springapp1.entity.WalletEntity;
+import com.example.springapp1.exception.UserNotFoundException;
+import com.example.springapp1.exception.WalletAlreadyExistException;
+import com.example.springapp1.exception.WalletNotFoundException;
+import com.example.springapp1.model.Wallet;
+import com.example.springapp1.repository.UserRepo;
+import com.example.springapp1.repository.WalletRepo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.math.BigDecimal;
-import java.util.Optional;
 
 @Service
 public class WalletService {

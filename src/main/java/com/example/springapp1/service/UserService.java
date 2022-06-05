@@ -1,10 +1,10 @@
-package com.example.acspring.service;
+package com.example.springapp1.service;
 
-import com.example.acspring.entity.UserEntity;
-import com.example.acspring.exception.UserAlreadyExistException;
-import com.example.acspring.exception.UserNotFoundException;
-import com.example.acspring.model.User;
-import com.example.acspring.repository.UserRepo;
+import com.example.springapp1.entity.UserEntity;
+import com.example.springapp1.exception.UserAlreadyExistException;
+import com.example.springapp1.exception.UserNotFoundException;
+import com.example.springapp1.model.User;
+import com.example.springapp1.repository.UserRepo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
